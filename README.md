@@ -1,10 +1,6 @@
 # **FastDiffSR**
 
-**A fast denoising Diffusion model with conditional guidance and fast  sampling for remote sensing image super-resolution**
-
-  - Fanen Meng,  Haoyu Jing, Laifu Zhang, Sensen Wu, Tian Feng, Renyi Liu, Zhenhong Du
-  - Neurocomputing, Volume 479, pp 47-59
-  - https://doi.org/10.1016/j.neucom.2022.01.029
+Our code will be coming soon...
 
 ## Folder Structure
 
@@ -144,10 +140,3 @@ python predict.py        # get image label results of semantic segmentation
 
 **Fig. 12.** 8-time super-resolution results of different methods on Vaihingen remote sensing image.
 
-## Citation
-
-If our code helps your research or work, please consider citing our paper. 
-
-```bib
-Liu, Z.; Chen, X.; Zhou, S.; Yu, H.; Guo, J.; Liu, Y. DUPnet: Water Body Segmentation with Dense Block and Multi-Scale Spatial Pyramid Pooling for Remote Sensing Images. Remote Sens. 2022, 14, 5567.
-```
