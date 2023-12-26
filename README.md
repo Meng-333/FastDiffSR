@@ -114,17 +114,17 @@ python predict.py        # get image label results of semantic segmentation
 
 
 
-![](D:\桌面\img\srcdm\5.1\5.1_Potsdam_x4x8.png)
+![](results_img/5.1_Potsdam_x4x8.png)
 
 **Fig. 8.** ×4 and ×8 visual comparisons with various SR methods on Potsdam dataset.
 
-![](D:\桌面\img\srcdm\5.2\5.2_Toronto_x4x8.png)
+![](results_img/5.2_Toronto_x4x8.png)
 
 **Fig. 9.** ×4 and ×8 visual comparisons with various SR methods on Toronto dataset
 
 ### 2. Semantic Segmentation Evaluation of SR Results
 
-![](D:\桌面\img\srcdm\5.3\5.3_se_x4x8.png)
+![](results_img/5.3_se_x4x8.png)
 
 **Fig. 10.** Visualization results of comparison methods on Potsdam dataset. (a) ×4 factor. (b) ×8 factor.
 
@@ -132,11 +132,11 @@ python predict.py        # get image label results of semantic segmentation
 
 ### 3. Evaluation on Real Multispectral Data
 
-![](D:\桌面\img\srcdm\5.4\Vaihingen_image1_5.4.png)
+![](results_img/Vaihingen_image1_5.4.png)
 
 **Fig. 11.** 4-time super-resolution results of different methods on Vaihingen remote sensing image.
 
-![](D:\桌面\img\srcdm\5.4\Vaihingen_image2_5.4.png)
+![](results_img/Vaihingen_image2_5.4.png)
 
 **Fig. 12.** 8-time super-resolution results of different methods on Vaihingen remote sensing image.
 
