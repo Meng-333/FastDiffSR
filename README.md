@@ -127,11 +127,15 @@ python test.py -opt=options/test/fastdiffsr_test.yml               # test
 ![](results_img/FastDiffSR_5.1_result.png)
 **Fig. 7.** ×4 and ×8 visual comparisons with various SR methods on Potsdam dataset.
 
+
 ![](results_img/FastDiffSR_5.2_result.png)
 **Fig. 8.** ×4 and ×8 visual comparisons with various SR methods on Toronto dataset
 
 
+
+
 ### 2. Evaluation of Real-world Multispectral Images
+
 
 ![](results_img/UCM_infer_result.png)
 **Fig. 9.** 4x visual comparisons of inference experiments on the UC Merced data. Here we show two scenes.
