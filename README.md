@@ -5,7 +5,7 @@ Our code will be coming soon...
 
 ![](results_img/FastDiffSR_model.png)
 
-**Fig. 2.** Overview structure of the proposed FastDiffSR diffusion framework. The two stages are noise addition and denoising according to the fast sampling module with T = 20 steps. x_0 is the residual image of the subtraction between the HR image and the Bicubic image..
+**Fig. 2.** Overview structure of the proposed FastDiffSR diffusion framework. The two stages are noise addition and denoising according to the fast sampling module with T = 20 steps. x0 is the residual image of the subtraction between the HR image and the Bicubic image..
 
 
 ## Folder Structure
@@ -72,11 +72,11 @@ We used two datasets to train our model. After secondary processing, we obtained
   
 - Test
   
-- ["Test_Potsdam", "Test_Toronto"]
+  - ["Test_Potsdam", "Test_Toronto"]
 
-- - Infer
+- Infer
   
-- ["UC Merced data"]
+  - ["UC Merced data"]
   
 - Link:   https://drive.google.com/drive/folders/1W_ZWHp8BhoeLdEKLF3eAsZTneaVJVgLy?usp=sharing 
 
