@@ -2,6 +2,12 @@
 
 Our code will be coming soon...
 
+
+![](results_img/FastDiffSR_model.png)
+
+**Fig. 2.** Overview structure of the proposed FastDiffSR diffusion framework. The two stages are noise addition and denoising according to the fast sampling module with T = 20 steps. x_0 is the residual image of the subtraction between the HR image and the Bicubic image..
+
+
 ## Folder Structure
 
 Our folder structure is as follows:
@@ -27,24 +33,25 @@ Our folder structure is as follows:
 │   │   ├── Test_Potsdam_32_256 (the same as above)
 │   │   ├── Test_Toronto_64_256 (the same as above)
 │   │   ├── Test_Toronto_32_256 (the same as above)
-│   ├── deeplabv3+ (semantic segmentation)
-│   ├── model        (DDPM,DMDC,TESR,GDP_x0,FastDiffSR model)
+│   ├── model        (DDPM,TESR,GDP_x0,FastDiffSR model)
 │   │   ├── ddpm_modules
 │   │   ├── sr3_modules
 │   │   ├── tesr_modules
 │   │   ├── gdp_modules
 │   │   ├── fastdiffsr_modules
 │   ├── MSI_SR_model (SwinIR,HSENet,TransENet,NDSRGAN,HAT model)
+│   ├── EDiffSR (EDiffSR model)
 │   ├── sr_mfe.py
+│   ├── infer.py
 ```
 
 ## Introduction
 
 - FastDiffSR (diffusion model architecture): This project is based on [[sr3]](https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement)
 
-  - Contains ten super-resolution models: ['SwinIR', 'HSENet', 'TransENet', 'NDSRGAN', 'HAT', 'DDPM', 'DMDC', 'TESR', 'GDP_x0', '**FastDiffSR**']
+  - Contains ten super-resolution models: ['SwinIR', 'HSENet', 'TransENet', 'NDSRGAN', 'HAT', 'DDPM',  'TESR', 'GDP_x0','EDiffSR', '**FastDiffSR**']
   - MSI_SR_model (traditional generative model architecture): This project is based on [[sradsgan]](https://github.com/Meng-333/SRADSGAN) 
-  - deeplabv3+: Semantic segmentation experiments for super-resolution results, this project is based on [[deeplabx3+]](https://github.com/bubbliiiing/deeplabv3-plus-pytorch)
+  - EDiffSR (conditional diffusion model): This project is based on [[ediffsr]](https://github.com/XY-boy/EDiffSR) 
 
 
 ## Environment Installation
@@ -57,7 +64,7 @@ pip install -r requirements.txt
 
 ## Dataset Preparation
 
-We used two datasets to train our model. After secondary processing, we obtained a total of about 22,854 images of 256*256 size.  
+We used two datasets to train our model. After secondary processing, we obtained a total of about 22,852 images of 256*256 size.  
 
 - Train
   
@@ -66,6 +73,10 @@ We used two datasets to train our model. After secondary processing, we obtained
 - Test
   
 - ["Test_Potsdam", "Test_Toronto"]
+
+- - Infer
+  
+- ["UC Merced data"]
   
 - Link:   https://drive.google.com/drive/folders/1W_ZWHp8BhoeLdEKLF3eAsZTneaVJVgLy?usp=sharing 
 
@@ -87,7 +98,7 @@ python sr_mfe.py -p val -c config/sr_fastdiffsr_test_64_256.json      # test  x4
 python sr_mfe.py -p train -c config/sr_fastdiffsr_train_32_256.json   # train x8
 python sr_mfe.py -p val -c config/sr_fastdiffsr_test_32_256.json      # test  x8
 ---------------------------------------------------------------
-# DDPM,DMDC,TESR,GDP_x0 (the same as above)
+# DDPM,TESR,GDP_x0 (the same as above)
 # SwinIR,HSENet,TransENet,NDSRGAN,HAT:
 cd MSI_SR_model
 python main_swinir.py
@@ -100,11 +111,11 @@ net.train()                       # train
 net.mfeNew_validate()             # test
 net.mfeNew_validateByClass()      # classes test
 ---------------------------------------------------------------
-# deeplabv3+
-cd deeplabv3+ 
-python train.py          # train
-python get_moiu.py       # get metric results of semantic segmentation
-python predict.py        # get image label results of semantic segmentation
+# EDiffSR
+cd EDiffSR/codes/config/sisr
+python train.py -opt=options/train/fastdiffsr_train.yml            # train
+python test.py -opt=options/test/fastdiffsr_test.yml               # test
+
 
 ```
 
@@ -114,29 +125,18 @@ python predict.py        # get image label results of semantic segmentation
 
 
 
-![](results_img/5.1_Potsdam_x4x8.png)
+![](results_img/FastDiffSR_5.1_result.png)
 
-**Fig. 8.** ×4 and ×8 visual comparisons with various SR methods on Potsdam dataset.
+**Fig. 7.** ×4 and ×8 visual comparisons with various SR methods on Potsdam dataset.
 
-![](results_img/5.2_Toronto_x4x8.png)
+![](results_img/FastDiffSR_5.2_result.png)
 
-**Fig. 9.** ×4 and ×8 visual comparisons with various SR methods on Toronto dataset
+**Fig. 8.** ×4 and ×8 visual comparisons with various SR methods on Toronto dataset
 
-### 2. Semantic Segmentation Evaluation of SR Results
+### 2. Evaluation of Real-world Multispectral Images
 
-![](results_img/5.3_se_x4x8.png)
+![](results_img/UCM_infer_result.png)
 
-**Fig. 10.** Visualization results of comparison methods on Potsdam dataset. (a) ×4 factor. (b) ×8 factor.
+**Fig. 9.** 4x visual comparisons of inference experiments on the UC Merced data. Here we show two scenes.
 
-
-
-### 3. Evaluation on Real Multispectral Data
-
-![](results_img/Vaihingen_image1_5.4.png)
-
-**Fig. 11.** 4-time super-resolution results of different methods on Vaihingen remote sensing image.
-
-![](results_img/Vaihingen_image2_5.4.png)
-
-**Fig. 12.** 8-time super-resolution results of different methods on Vaihingen remote sensing image.
 
