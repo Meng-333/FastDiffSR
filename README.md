@@ -2,6 +2,7 @@
 
 Our code will be coming soon...
 
+A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution
 
 ![](results_img/FastDiffSR_model.png)
 
