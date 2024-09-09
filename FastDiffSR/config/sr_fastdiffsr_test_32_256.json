@@ -1,0 +1,107 @@
+{
+    "name": "sr_fastdiffsr_test_32_256",
+    "phase": "val", // train or val
+    "gpu_ids": [
+        0
+    ],
+    "path": { //set the path
+        "log": "logs",
+        "tb_logger": "tb_logger",
+        "results": "results",
+        "checkpoint": "checkpoint",
+        "resume_state": "experiments/sr_fastdiffsr_train_32_256/checkpoint/I883168_E193"
+    },
+    "datasets": {
+        "train": {
+            "name": "Train",
+            "mode": "LRHR", // whether need LR img
+            "dataroot": "dataset/Train_32_256",
+            "datatype": "img", //lmdb or img, path of img files
+            "l_resolution": 32, // low resolution need to super_resolution
+            "r_resolution": 256, // high resolution
+            "batch_size": 4,
+            "num_workers": 8,
+            "use_shuffle": true,
+            "data_len": -1, // -1 represents all data used in train
+            "img_mask": "no"
+        },
+      //  "val": {
+      //      "name": "Test",
+      //      "mode": "LRHR",
+      //      "dataroot": "dataset/Test_Potsdam_32_256",
+      //      "datatype": "img", //lmdb or img, path of img files
+      //      "l_resolution": 32,
+      //      "r_resolution": 256,
+      //      "data_len": 3272, // data length in validation
+      //      "img_mask": "no"
+      //  }
+        "val": {
+            "name": "Test",
+            "mode": "LRHR",
+            "dataroot": "dataset/Test_Toronto_32_256",
+            //"dataroot": "dataset/Test_val_32_256",
+            "datatype": "img", //lmdb or img, path of img files
+            "l_resolution": 32,
+            "r_resolution": 256,
+            "data_len": 1276,
+            "img_mask": "no"
+        }
+    },
+    "model": {
+        "which_model_G": "fastdiffsr", // use the ddpm or sr3 network structure
+        "finetune_norm": false,
+        "unet": {
+            "in_channel": 6,
+            "out_channel": 3,
+            "inner_channel": 64,
+            "channel_multiplier": [
+                1,
+                2,
+                4,
+                4
+            ],
+            "attn_res": [
+                16
+            ],
+            "res_blocks": 2,
+            "dropout": 0.2
+        },
+        "beta_schedule": { // use munual beta_schedule for acceleration
+            "train": {
+                "schedule": "linear_cosine",
+                "n_timestep": 20,
+                "linear_start": 1e-6,
+                "linear_end": 1e-2
+            },
+            "val": {
+                "schedule": "linear_cosine",
+                "n_timestep": 20,
+                "linear_start": 1e-6,
+                "linear_end": 1e-2
+            }
+        },
+        "diffusion": {
+            "image_size": 256,
+            "channels": 3, //sample channel
+            "conditional": true // unconditional generation or unconditional generation(super_resolution)
+        }
+    },
+    "train": {
+        "n_iter": 915200,
+        "val_freq": 9152,
+        "save_checkpoint_freq": 9152,
+        "print_freq": 1144,
+        "optimizer": {
+            "type": "adam",
+            "lr": 2e-4
+        },
+        "ema_scheduler": { // not used now
+            "step_start_ema": 5000,
+            "update_ema_every": 1,
+            "ema_decay": 0.9999
+        }
+    },
+    "wandb": {
+        "project": "sr_fastdiffsr_test_32_256"
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "name": "sr_gdp_test_64_256",
+    "phase": "val",  // train or val
+    "gpu_ids": [
+        0
+    ],
+    "path": {
+        "log": "logs",
+        "tb_logger": "tb_logger",
+        "results": "results",
+        "checkpoint": "checkpoint",
+        "resume_state": "experiments/sr_gdp_train_64_256/checkpoint/I86944_E19"
+    },
+    "datasets": {
+        "train": {
+            "name": "Train",
+            "mode": "LRHR",
+            "dataroot": "dataset/Train_64_256",
+            "datatype": "img", //lmdb or img, path of img files
+            "l_resolution": 64,
+            "r_resolution": 256,
+            "batch_size": 4,
+            "num_workers": 8,
+            "use_shuffle": true,
+            "data_len": -1,
+            "img_mask": "no"
+        },
+        "val": {
+            "name": "Test",
+            "mode": "LRHR",
+            "dataroot": "dataset/Test_Potsdam_64_256",
+            "datatype": "img", //lmdb or img, path of img files
+            "l_resolution": 64,
+            "r_resolution": 256,
+            "data_len": 3272,
+            "img_mask": "no"
+        }
+       // "val": {
+       //     "name": "Test",
+       //     "mode": "LRHR",
+       //     "dataroot": "dataset/Test_Toronto_64_256",
+       //     "datatype": "img", //lmdb or img, path of img files
+       //     "l_resolution": 64,
+       //     "r_resolution": 256,
+       //     "data_len": 1276,
+       //     "img_mask": "no"
+      //  }
+    },
+    "model": {
+        "which_model_G": "gdp", 
+        "finetune_norm": false,
+        "unet": {
+            "in_channel": 6,
+            "out_channel": 3,
+            "inner_channel": 64,
+            "channel_multiplier": [
+                1,
+                2,
+                4,
+                8
+            ],
+            "attn_res": [
+                16
+            ],
+            "res_blocks": 2,
+            "dropout": 0.2
+        },
+        "beta_schedule": {
+            "train": {
+                "schedule": "linear",
+                "n_timestep": 1000,
+                "linear_start": 1e-4,
+                "linear_end": 2e-2
+            },
+            "val": {
+                "schedule": "linear",
+                "n_timestep": 1000,
+                "linear_start": 1e-4,
+                "linear_end": 2e-2
+            }
+        },
+        "diffusion": {
+            "image_size": 256,
+            "channels": 3, //sample channel
+            "conditional": true
+        }
+    },
+    "train": {
+        "n_iter": 915200,
+        "val_freq": 9152,
+        "save_checkpoint_freq": 9152,
+        "print_freq": 1144,
+        "optimizer": {
+            "type": "adam",
+            "lr": 2e-4
+        },
+        "ema_scheduler": {
+            "step_start_ema": 5000,
+            "update_ema_every": 1,
+            "ema_decay": 0.9999
+        }
+    },
+    "wandb": {
+        "project": "sr_gdp_test_64_256"
+    }
+}
