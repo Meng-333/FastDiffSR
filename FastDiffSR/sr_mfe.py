@@ -172,7 +172,6 @@ if __name__ == "__main__":
                         sssim = compare_ssim(sr_img, hr_img, multichannel=True)
                         sergas = Metrics.calculate_ergas(sr_img, hr_img, scale=scale)
                         slpips = Metrics.calculate_lpips(sr_img, hr_img)
-                        #result_imgs = [hr_img.cpu(), lr_img.cpu(), fake_img.cpu(), sr_img.cpu()]
                         result_imgs = [hr_img, lr_img, fake_img, sr_img]
                         mses = [None, None, bmse, smse]
                         psnrs = [None, None, bpsnr, spsnr]
@@ -225,17 +224,6 @@ if __name__ == "__main__":
                     diffusion.set_new_noise_schedule(
                         opt['model']['beta_schedule']['train'], schedule_phase='train')
                     # log
-                    # logger.info('# Validation # BIC_MSE: {:.2e}'.format(bic_mse))
-                    # logger.info('# Validation # BIC_PSNR: {:.3e}'.format(bic_psnr))
-                    # logger.info('# Validation # BIC_SSIM: {:.5e}'.format(bic_ssim))
-                    # logger.info('# Validation # BIC_ERGAS: {:.4e}'.format(bic_ergas))
-                    # logger.info('# Validation # BIC_LPIPS: {:.5e}'.format(bic_lpips))
-                    # 
-                    # logger.info('# Validation # SR_MSE: {:.2e}'.format(avg_mse))
-                    # logger.info('# Validation # SR_PSNR: {:.3e}'.format(avg_psnr))
-                    # logger.info('# Validation # SR_SSIM: {:.5e}'.format(avg_ssim))
-                    # logger.info('# Validation # SR_ERGAS: {:.4e}'.format(avg_ergas))
-                    # logger.info('# Validation # SR_LPIPS: {:.5e}'.format(avg_lpips))
                     logger_val = logging.getLogger('val')  # validation logger
                     if current_step == 9152:
                         logger_val.info(
@@ -382,17 +370,6 @@ if __name__ == "__main__":
         avg_lpips = avg_lpips / idx
 
         # log
-        # logger.info('# Validation # BIC_MSE: {:.2e}'.format(bic_mse))
-        # logger.info('# Validation # BIC_PSNR: {:.3e}'.format(bic_psnr))
-        # logger.info('# Validation # BIC_SSIM: {:.5e}'.format(bic_ssim))
-        # logger.info('# Validation # BIC_ERGAS: {:.4e}'.format(bic_ergas))
-        # logger.info('# Validation # BIC_LPIPS: {:.5e}'.format(bic_lpips))
-        #
-        # logger.info('# Validation # SR_MSE: {:.2e}'.format(avg_mse))
-        # logger.info('# Validation # SR_PSNR: {:.3e}'.format(avg_psnr))
-        # logger.info('# Validation # SR_SSIM: {:.5e}'.format(avg_ssim))
-        # logger.info('# Validation # SR_ERGAS: {:.4e}'.format(avg_ergas))
-        # logger.info('# Validation # SR_LPIPS: {:.5e}'.format(avg_lpips))
         logger_val = logging.getLogger('val')  # validation logger
         logger_val.info(
             '<epoch:{:3d}, iter:{:8,d}> bic_mse: {:.5e}, bic_psnr: {:.5e}, bic_ssim：{:.5e}, bic_ergas: {:.5e}, bic_lpips: {:.5e}'.format(
