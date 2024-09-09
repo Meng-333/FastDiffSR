@@ -1,8 +1,10 @@
 # **FastDiffSR**
+**A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution**
 
-Our code will be coming soon...
-
-A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution
+  - Fanen Meng, Yijun Chen, Haoyu Jing, Laifu Zhang, Yiming Yan, Yingchao Ren, Sensen Wu, Tian Feng, Renyi Liu, Zhenhong Du
+  - *IEEE Transactions on Geoscience and Remote Sensing*, vol. 62, pp. 1-22
+  - https://ieeexplore.ieee.org/document/10375518
+  - checkpoint: https://pan.baidu.com/s/1VMSjKKCu3VqKUOV-wycMDA?pwd=0115 提取码：0115 or https://drive.google.com/drive/folders/16e4WKUxFNz3H0Dafrc8pFSnU54pKI8l4?usp=drive_link
 
 ![](results_img/FastDiffSR_model.png)
 
@@ -36,7 +38,6 @@ Our folder structure is as follows:
 │   │   ├── Test_Toronto_32_256 (the same as above)
 │   ├── model        (DDPM,TESR,GDP_x0,FastDiffSR model)
 │   │   ├── ddpm_modules
-│   │   ├── sr3_modules
 │   │   ├── tesr_modules
 │   │   ├── gdp_modules
 │   │   ├── fastdiffsr_modules
@@ -79,7 +80,7 @@ We used two datasets to train our model. After secondary processing, we obtained
   
   - ["UC Merced data"]
   
-- Link:   https://drive.google.com/drive/folders/1W_ZWHp8BhoeLdEKLF3eAsZTneaVJVgLy?usp=sharing 
+- Link: https://pan.baidu.com/s/1VOBxWpqXCJIZeoBwKqSe6w?pwd=0115 提取码：0115 or https://drive.google.com/drive/folders/1W_ZWHp8BhoeLdEKLF3eAsZTneaVJVgLy?usp=sharing 
 
   ```bash
   cd FastDiffSR/dataset
