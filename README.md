@@ -2,8 +2,8 @@
 **A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution**
 
   - Fanen Meng, Yijun Chen, Haoyu Jing, Laifu Zhang, Yiming Yan, Yingchao Ren, Sensen Wu, Tian Feng, Renyi Liu, Zhenhong Du
-  - *IEEE Transactions on Geoscience and Remote Sensing*, vol. 62, pp. 1-22
-  - https://ieeexplore.ieee.org/document/10677485
+  - *IEEE Transactions on Geoscience and Remote Sensing*, vol. 62, pp. 1-16
+  - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10677485
   - checkpoint: https://pan.baidu.com/s/1VMSjKKCu3VqKUOV-wycMDA?pwd=0115 提取码：0115 or https://drive.google.com/drive/folders/16e4WKUxFNz3H0Dafrc8pFSnU54pKI8l4?usp=drive_link
 
 ![](results_img/FastDiffSR_model.png)
