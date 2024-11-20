@@ -99,6 +99,7 @@ python sr_mfe.py -p train -c config/sr_fastdiffsr_train_64_256.json   # train x4
 python sr_mfe.py -p val -c config/sr_fastdiffsr_test_64_256.json      # test  x4
 python sr_mfe.py -p train -c config/sr_fastdiffsr_train_32_256.json   # train x8
 python sr_mfe.py -p val -c config/sr_fastdiffsr_test_32_256.json      # test  x8
+python infer.py -p val -c config/sr_fastdiffsr_infer_128_512.json      # infer  x4
 ---------------------------------------------------------------
 # DDPM,TESR,GDP_x0 (the same as above)
 # SwinIR,HSENet,TransENet,NDSRGAN,HAT:
