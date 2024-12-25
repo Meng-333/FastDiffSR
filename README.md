@@ -83,7 +83,7 @@ We used two datasets to train our model. After secondary processing, we obtained
 - Link: https://pan.baidu.com/s/1VOBxWpqXCJIZeoBwKqSe6w?pwd=0115 提取码：0115 or https://drive.google.com/drive/folders/1W_ZWHp8BhoeLdEKLF3eAsZTneaVJVgLy?usp=sharing 
 
   ```bash
-  cd FastDiffSR/dataset
+  cd FastDiffSR/data/
   python prepare_data_mfe_dm.py   # Generate corresponding hr, lr, sr folders based on Train and Test data
   ```
   
