@@ -104,7 +104,8 @@ def main():
     net.train()
 
     # test
-    net.mfeNew_validate(epoch=100, modelpath='./Result/NDSRGAN/model/generator_param.pkl')
+    #net.mfeNew_validate(epoch=100, modelpath='./Result/NDSRGAN/model/generator_param.pkl')
+    net.mfeNew_validateByClass(100, save_img=True, modelpath="./Result/NDSRGAN/model/generator_param.pkl")
 
     # # 单张图片推理
     # #UCM_input_img scale_factor=4 crop_size=test_crop_size=hr_height=hr_width=128
