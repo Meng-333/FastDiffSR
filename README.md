@@ -84,7 +84,7 @@ We used two datasets to train our model. After secondary processing, we obtained
 
   ```bash
   cd FastDiffSR/data/
-  python prepare_data_mfe_dm.py   # Generate corresponding hr, lr, sr folders based on Train and Test data
+  python prepare_data_mfe_dm.py   # Generate corresponding hr, lr, sr folders based on dataset/Train and dataset/Test data
   ```
   
 
