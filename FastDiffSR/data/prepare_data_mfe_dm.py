@@ -163,18 +163,18 @@ if __name__ == '__main__':
 
 #   Potsdam Toronto
     parser.add_argument('--path', '-p', type=str,
-                        default='./Train')
+                        default='../dataset/Train')
     parser.add_argument('--out', '-o', type=str,
-                        default='./Train')
+                        default='../dataset/Train')
 #     parser.add_argument('--path', '-p', type=str,
-#                         default='./Test/Potsdam')
+#                         default='../dataset/Test/Potsdam')
 #     parser.add_argument('--out', '-o', type=str,
-#                         default='./Test_Potsdam')
+#                         default='../dataset/Test_Potsdam')
 
 #     parser.add_argument('--path', '-p', type=str,
-#                         default='./Test/Toronto')
+#                         default='../dataset/Test/Toronto')
 #     parser.add_argument('--out', '-o', type=str,
-#                         default='./Test_Toronto')
+#                         default='../dataset/Test_Toronto')
 
     parser.add_argument('--size', type=str, default='64,256')
     parser.add_argument('--n_worker', type=int, default=4)
