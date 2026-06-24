@@ -146,7 +146,7 @@ python test.py -opt=options/test/fastdiffsr_test.yml               # test
 
 ## Citation
 
-If our code helps your research or work, please consider citing our paper. 
+If our code helps with your research or work, please consider citing our paper. 
 
 ```
 F. Meng et al., "A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution,"
