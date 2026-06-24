@@ -144,3 +144,16 @@ python test.py -opt=options/test/fastdiffsr_test.yml               # test
 **Fig. 9.** 4x visual comparisons of inference experiments on the UC Merced data. Here we show two scenes.
 
 
+## Citation
+
+If our code helps your research or work, please consider citing our paper. 
+
+```
+F. Meng et al., "A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution," in IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-16, 2024, Art no. 5408616,
+doi: 10.1109/TGRS.2024.3458009.
+```
+
+## Contact
+
+If you have any questions about it, please feel free to let me know. (email:[mengfanen@tmslab.cn; 12238036@zju.edu.cn]
+
