@@ -149,7 +149,8 @@ python test.py -opt=options/test/fastdiffsr_test.yml               # test
 If our code helps your research or work, please consider citing our paper. 
 
 ```
-F. Meng et al., "A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution," in IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-16, 2024, Art no. 5408616,
+F. Meng et al., "A Conditional Diffusion Model With Fast Sampling Strategy for Remote Sensing Image Super-Resolution,"
+in IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp. 1-16, 2024, Art no. 5408616,
 doi: 10.1109/TGRS.2024.3458009.
 ```
 
